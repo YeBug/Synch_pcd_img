@@ -4,7 +4,7 @@ import matplotlib.image as mpimg
 import numpy as np
 import open3d as o3d
 
-with open('D:\git\kitti-velo2cam\calib.txt','r') as f:
+with open('D:\git\Sync_pcd_data\calib.txt','r') as f:
     calib = f.readlines()
 
 with open('D:\data\sync_list.txt','r') as f:
