@@ -52,14 +52,17 @@ def proj2img(cam, label, color_seg):
     # generate color map from depth
     u,v,z = cam
     count_error = 0
+    target_points = 0
     for i in range(len(label)):
         if label[i] == 40 or label[i] ==44  or label[i] == 49 or label[i] == 48:
             label[i] = 40 
         else:
             label[i] = 12
+            target_points += 1
             if list(color_seg[int(v[i]), int(u[i])]) == [128, 64, 128]:
                 count_error += 1
-    return count_error
+    acc_rate = (target_points - count_error) / target_points
+    return acc_rate
 
 if __name__ == "__main__":
     img_path = 'D:\data\\test0.jpg'
