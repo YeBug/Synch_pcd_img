@@ -12,7 +12,7 @@ model_name = "nvidia/segformer-b5-finetuned-cityscapes-1024-1024"
 vfi_img_path = "D:\\data\\testdata\subdata\\"
 pcd_path = "D:\\data\\testdata\\pcds\\"
 seg_label_path = "D:\\data\\testdata\\predictions\\"
-color_seg_path =  "D:\\data\\testdata\\color_seg\\"
+vfi_seg_path =  "D:\\data\\testdata\\color_seg\\"
 calib_path = 'calib.txt'
 
 
