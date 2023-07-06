@@ -68,12 +68,13 @@ def open_points(pcdata_name):
 if __name__ == "__main__":
     img_list = os.listdir(img_org)
     pcd_list = os.listdir(pcd_org)
-    error_total = {"<100":0, "100-200":0, "200-300":0, "300-400":0, "400-600":0, ">600":0}
-    for index in range(len(sync_list)):
+    index = 0
+    while index < len(sync_list):
         img = img_org + img_list[index]
         pcd = pcd_org + pcd_list[index]
         sync_path, error_count = sync_list[index].split(",")
         sync = interp_org + sync_path
         error_count = int(error_count.replace("\n", ""))
         velo2cam(img, sync, pcd)
+        index += 10
             

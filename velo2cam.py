@@ -7,7 +7,7 @@ import open3d as o3d
 # sn = int(sys.argv[1]) if len(sys.argv)>1 else 7 #default 0-7517
 # name = '%06d'%sn # 6 digit zeropadding
 img = 'D:\data\\test01.jpg'
-binary = 'D:\\data\\fusion_data\\pcds\\rslidar_points_128_1667373209.350169897.pcd'
+binary = 'D:\\data\\fusion_data\\pcds\\rslidar_points_128_1667373209.450156927.pcd'
 with open('D:\git\Sync_pcd_data\calib.txt','r') as f:
     calib = f.readlines()
 
@@ -31,7 +31,9 @@ png = mpimg.imread(img)
 IMG_H,IMG_W,_ = png.shape
 # restrict canvas in range
 plt.axis([0,IMG_W,IMG_H,0])
-plt.imshow(png)
+# plt.imshow(png)
+plt.axes().get_xaxis().set_visible(False)
+plt.axes().get_yaxis().set_visible(False)
 # filter point out of canvas
 u,v,z = cam
 print(z.shape)
@@ -42,4 +44,5 @@ cam = np.delete(cam,np.where(outlier),axis=1)
 # generate color map from depth
 u,v,z = cam
 plt.scatter([u],[v],c=[z],cmap='rainbow_r',alpha=0.5,s=2)
+plt.savefig("fig2.jpg")
 plt.show()
